@@ -54,7 +54,7 @@ const OrderSummary = ({ totalPrice, items }) => {
                         <div>
                             {
                                 addressList.length > 0 && (
-                                    <select className='border border-slate-400 p-2 w-full my-3 outline-none rounded' onChange={(e) => setSelectedAddress(addressList[e.target.value])} >
+                                    <select className='border border-slate-900 p-2 w-full my-3 outline-none rounded' onChange={(e) => setSelectedAddress(addressList[e.target.value])} >
                                         <option value="">Select Address</option>
                                         {
                                             addressList.map((address, index) => (
@@ -64,7 +64,7 @@ const OrderSummary = ({ totalPrice, items }) => {
                                     </select>
                                 )
                             }
-                            <button className='flex items-center gap-1 text-slate-600 mt-1' onClick={() => setShowAddressModal(true)} >Add Address <PlusIcon size={18} /></button>
+                            <button className='flex items-center gap-1 text-white mt-1' onClick={() => setShowAddressModal(true)} >Add Address <PlusIcon size={18} /></button>
                         </div>
                     )
                 }
