@@ -21,12 +21,12 @@ const Footer = () => {
             ]
         },
         {
-            title: "WEBSITE?",
+            title: "Devlopers",
             links: [
-                { text: "Home", path: '/', icon: null },
-                { text: "Privacy Policy", path: '/', icon: null },
-                { text: "Become Plus Member", path: '/pricing', icon: null },
-                { text: "Create Your Store", path: '/create-store', icon: null },
+                { text: "Rishabh Tripathi", path: 'https://www.linkedin.com/in/rishabh-tripathi-575252290/', icon: LinkedinIcon },
+                { text: "Karan Pratap Singh", path: 'https://www.linkedin.com/in/karan-pratap-singh-579a88236/', icon: LinkedinIcon },
+                { text: "Vishal Verma", path: 'https://www.linkedin.com/in/vishal-verma-830216324/', icon: LinkedinIcon },
+                
             ]
         },
         {
@@ -40,8 +40,8 @@ const Footer = () => {
     ];
 
     const socialIcons = [
-        { icon: FacebookIcon, link: "https://www.facebook.com" },
-        { icon: InstagramIcon, link: "https://www.instagram.com" },
+        { icon: FacebookIcon, link: "https://www.facebook.com/share/16wTg1qPDG/" },
+        { icon: InstagramIcon, link: "https://www.instagram.com/karan_pratap08?igsh=dXNwOTJpdmsyZDVu" },
         { icon: TwitterIcon, link: "https://twitter.com" },
         { icon: LinkedinIcon, link: "https://www.linkedin.com" },
     ]
@@ -57,7 +57,7 @@ const Footer = () => {
                         <p className="max-w-[410px] mt-6 text-sm">Welcome to FashTech, your ultimate destination for the latest and smartest gadgets. From smartphones and smartwatches to essential accessories, we bring you the best in innovation — all in one place.</p>
                         <div className="flex items-center gap-3 mt-5">
                             {socialIcons.map((item, i) => (
-                                <Link href={item.link} key={i} className="flex items-center justify-center w-10 h-10 bg-slate-100 hover:scale-105 hover:border border-slate-300 transition rounded-full">
+                                <Link href={item.link} key={i} className="flex items-center justify-center w-10 h-10 bg-slate-600 hover:scale-105 hover:border border-slate-300 transition rounded-full">
                                     <item.icon />
                                 </Link>
                             ))}
