@@ -79,7 +79,7 @@ const Footer = () => {
                         ))}
                     </div>
                 </div>
-                <p className="py-4 text-sm text-slate-500">
+                <p className="py-4 text-sm text-slate-500  text-center">
                     Copyright 2025 © gocart All Right Reserved.
                 </p>
             </div>

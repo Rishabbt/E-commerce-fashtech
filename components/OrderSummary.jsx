@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const OrderSummary = ({ totalPrice, items }) => {
 
-    const currency = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '$';
+    const currency = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '₹';
 
     const router = useRouter();
 
@@ -31,9 +31,9 @@ const OrderSummary = ({ totalPrice, items }) => {
     }
 
     return (
-        <div className='w-full max-w-lg lg:max-w-[340px] bg-slate-50/30 border border-slate-200 text-slate-500 text-sm rounded-xl p-7'>
-            <h2 className='text-xl font-medium text-slate-600'>Payment Summary</h2>
-            <p className='text-slate-400 text-xs my-4'>Payment Method</p>
+        <div className='w-full max-w-lg lg:max-w-[340px] bg-slate-50/30 border border-slate-200 text-white text-sm rounded-xl p-7'>
+            <h2 className='text-xl font-medium text-white'>Payment Summary</h2>
+            <p className='text-white text-xs my-4'>Payment Method</p>
             <div className='flex gap-2 items-center'>
                 <input type="radio" id="COD" onChange={() => setPaymentMethod('COD')} checked={paymentMethod === 'COD'} className='accent-gray-500' />
                 <label htmlFor="COD" className='cursor-pointer'>COD</label>
@@ -43,7 +43,7 @@ const OrderSummary = ({ totalPrice, items }) => {
                 <label htmlFor="STRIPE" className='cursor-pointer'>Stripe Payment</label>
             </div>
             <div className='my-4 py-4 border-y border-slate-200 text-slate-400'>
-                <p>Address</p>
+                <p className='text-white'>Address</p>
                 {
                     selectedAddress ? (
                         <div className='flex gap-2 items-center'>
@@ -71,7 +71,7 @@ const OrderSummary = ({ totalPrice, items }) => {
             </div>
             <div className='pb-4 border-b border-slate-200'>
                 <div className='flex justify-between'>
-                    <div className='flex flex-col gap-1 text-slate-400'>
+                    <div className='flex flex-col gap-1 text-white'>
                         <p>Subtotal:</p>
                         <p>Shipping:</p>
                         {coupon && <p>Coupon:</p>}
@@ -97,11 +97,11 @@ const OrderSummary = ({ totalPrice, items }) => {
                     )
                 }
             </div>
-            <div className='flex justify-between py-4'>
+            <div className=' text-white flex justify-between py-4'>
                 <p>Total:</p>
                 <p className='font-medium text-right'>{currency}{coupon ? (totalPrice - (coupon.discount / 100 * totalPrice)).toFixed(2) : totalPrice.toLocaleString()}</p>
             </div>
-            <button onClick={e => toast.promise(handlePlaceOrder(e), { loading: 'placing Order...' })} className='w-full bg-slate-700 text-white py-2.5 rounded hover:bg-slate-900 active:scale-95 transition-all'>Place Order</button>
+            <button onClick={e => toast.promise(handlePlaceOrder(e), { loading: 'placing Order...' })} className='w-full bg-green-700 text-white py-2.5 rounded hover:bg-slate-900 active:scale-95 transition-all'>Place Order</button>
 
             {showAddressModal && <AddressModal setShowAddressModal={setShowAddressModal} />}
 
