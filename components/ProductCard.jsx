@@ -48,7 +48,7 @@ const ProductCard = ({ product, rating = 4, currency = "₹" }) => {
           </div>
           {/* 💰 Price */}
           <p className="font-bold text-indigo-600 dark:text-indigo-400 mt-2 sm:mt-0">
-            {currency} {product.price}
+            {currency} {product.price.toLocaleString("en-IN")}
           </p>
         </div>
 
