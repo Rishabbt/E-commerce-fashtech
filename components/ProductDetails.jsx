@@ -49,8 +49,8 @@ const ProductDetails = ({ product }) => {
                     <p className="text-sm ml-3 text-slate-500">{product.rating.length} Reviews</p>
                 </div>
                 <div className="flex items-start my-6 gap-3 text-2xl font-semibold text-white">
-                    <p> {currency}{product.price} </p>
-                    <p className="text-xl text-slate-500 line-through">{currency}{product.mrp}</p>
+                    <p> {currency}{product.price.toLocaleString("en-IN")} </p>
+                    <p className="text-xl text-slate-500 line-through">{currency}{product.mrp.toLocaleString("en-IN")}</p>
                 </div>
                 <div className="flex items-center gap-2 text-white">
                     <TagIcon size={14} />
