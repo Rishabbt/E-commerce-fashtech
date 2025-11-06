@@ -12,13 +12,10 @@ const ProductCard = ({ product, rating = 4, currency = "₹" }) => {
         animate={{ opacity: 1, y: 0 }}
         whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="relative bg-gradient-to-b from-slate-50 to-slate-100 
-                   dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-sm 
-                   hover:shadow-lg hover:shadow-indigo-200/30 dark:hover:shadow-indigo-500/10 
-                   overflow-hidden p-4 sm:w-60 mx-auto cursor-pointer transition-all duration-300"
+        className="relative bg-gradient-to-b from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-sm hover:shadow-lg hover:shadow-indigo-200/30 dark:hover:shadow-indigo-500/10 overflow-hidden p-4 w-40 sm:w-48 md:w-56 lg:w-60 mx-auto cursor-pointer transition-all duration-300 min-h-[320px] flex flex-col"
       >
         {/* Image Section */}
-        <div className="flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg overflow-hidden h-44 sm:h-56">
+        <div className="flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg overflow-hidden h-40 sm:h-48 md:h-56 flex-shrink-0">
           <Image
             width={400}
             height={400}
@@ -29,12 +26,11 @@ const ProductCard = ({ product, rating = 4, currency = "₹" }) => {
         </div>
 
         {/* Product Info */}
-        <div className="pt-4 flex justify-between items-start text-slate-800 dark:text-gray-100">
-          <div>
+        <div className="pt-4 flex flex-col sm:flex-row sm:justify-between sm:items-start text-slate-800 dark:text-gray-100 flex-grow">
+          <div className="flex-grow">
             <p className="font-semibold text-base leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
               {product.name}
             </p>
-
             {/* ⭐ Rating */}
             <div className="flex mt-1">
               {Array(5)
@@ -50,11 +46,9 @@ const ProductCard = ({ product, rating = 4, currency = "₹" }) => {
                 ))}
             </div>
           </div>
-
           {/* 💰 Price */}
-          <p className="font-bold text-indigo-600 dark:text-indigo-400">
-            {currency}
-            {product.price}
+          <p className="font-bold text-indigo-600 dark:text-indigo-400 mt-2 sm:mt-0">
+            {currency} {product.price}
           </p>
         </div>
 

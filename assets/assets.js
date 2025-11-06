@@ -409,7 +409,7 @@ export const productDummyData = [
         name: "Hoddie",
         description: "Hoodies are cozy, casual sweatshirts with a hood — perfect for comfort and everyday wear.They blend style and warmth, often featuring front pockets and drawstrings, making them ideal for both lounging and layering in any season.They’re a timeless fashion staple that pairs effortlessly with jeans, joggers, or shorts.Whether you’re heading out or relaxing indoors, a hoodie keeps you warm, stylish, and comfortable all day long. ",
         mrp: "1,299",
-        price: 900,
+        price: "900",
         images: [product_img22,product_img22_2],
         category: "Fashion",
         storeId: "seller_1",
