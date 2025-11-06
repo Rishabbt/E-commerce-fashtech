@@ -75,7 +75,7 @@ export default function Cart() {
                                             <div>
                                                 <p className="max-sm:text-sm">{item.name}</p>
                                                 <p className="text-xs text-slate-500">{item.category}</p>
-                                                <p>{currency}{item.price}</p>
+                                                <p>{currency}{item.price.toLocaleString("en-IN")}</p>
                                             </div>
                                         </td>
                                         <td className="text-center">
