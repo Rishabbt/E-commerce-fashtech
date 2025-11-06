@@ -272,7 +272,7 @@ export const productDummyData = [
     },
      {
         id: "prod_13",
-        name: "Samsung Galaxy Watch7",
+        name: "Samsung Watch7",
         description: "The **Samsung Galaxy Watch7** combines elegant design with advanced health and fitness tracking features.Powered by Wear OS, it offers smooth performance and seamless connectivity with your smartphone. Rack your heart rate, sleep, workouts, and even stress levels with precision using its next-gen sensors. Built with premium materials and a vibrant AMOLED display, it’s as stylish as it is durable.Stay connected, monitor your wellness, and elevate your lifestyle with the all-new Galaxy Watch7.",
         mrp: 39990,
         price: 24099,
@@ -287,7 +287,7 @@ export const productDummyData = [
      },
       {
         id: "prod_14",
-        name: "SONY PlayStation5",
+        name: "SONY PS5",
         description: "The PlayStation 5 (PS5) is Sony’s powerful next-generation gaming console built for ultra-fast performance and stunning graphics.Powered by a custom SSD and ray-tracing technology, it delivers incredibly realistic visuals and near-instant load times.Its DualSense controller offers immersive haptic feedback and adaptive triggers for a next-level gaming experience.Whether you’re exploring vast open worlds or competing online, the PS5 brings games to life like never before.With support for 4K gaming, exclusive titles, and sleek futuristic design, it defines the future of console entertainment. ",
         mrp: 60000,
         price: 40000,
@@ -336,7 +336,7 @@ export const productDummyData = [
         description: "The GoPro is a compact, rugged action camera built to capture your adventures in stunning detail. With 4K video, wide-angle shots, and advanced stabilization, it delivers smooth and cinematic footage anywhere you go.It’s waterproof, durable, and perfect for sports, travel, and vlogging — no moment is too extreme.Easily mountable on helmets, bikes, or gear, it lets you record hands-free from any angle.Whether underwater or in the air, the GoPro turns every experience into a high-quality, shareable story.",
         mrp: 38999,
         price: 35000,
-        images: [product_img17,product_img17_2],
+        images: [product_img17,product_img17_2,product_img17_3],
         category: "Camera",
         storeId: "seller_1",
         inStock: true,
