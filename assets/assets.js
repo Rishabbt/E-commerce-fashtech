@@ -16,6 +16,32 @@ import product_img9 from "./product_img9.png"
 import product_img10 from "./product_img10.png"
 import product_img11 from "./product_img11.png"
 import product_img12 from "./product_img12.png"
+import product_img13 from "./product_img13.png"
+import product_img14 from "./product_img14.png"
+import product_img15 from "./product_img15.png"
+import product_img16 from "./product_img16.png"
+import product_img17 from "./product_img17.png"
+import product_img17_2 from "./product_img17_2.png"
+import product_img17_3 from "./product_img17_3.png"
+import product_img18 from "./product_img18.png"
+import product_img18_2 from "./product_img18_2.png"
+import product_img18_3 from "./product_img18_3.png"
+import product_img19 from "./product_img19.png"
+import product_img19_2 from "./product_img19_2.png"
+import product_img19_3 from "./product_img19_3.png"
+import product_img19_4 from "./product_img19_4.png"
+import product_img20 from "./product_img20.png"
+import product_img20_2 from "./product_img20_2.png"
+import product_img20_3 from "./product_img20_3.png"
+import product_img21 from "./product_img21.png"
+import product_img21_2 from "./product_img21_2.png"
+import product_img21_3 from "./product_img21_3.png"
+import product_img21_4 from "./product_img21_4.png"
+import product_img22 from "./product_img22.png"
+import product_img22_2 from "./product_img22_2.png"
+import product_img23 from "./product_img23.png"
+
+
 import { ClockFadingIcon, HeadsetIcon, SendIcon } from "lucide-react";
 import profile_pic1 from "./profile_pic1.jpg"
 import profile_pic2 from "./profile_pic2.jpg"
@@ -25,7 +51,7 @@ export const assets = {
     upload_area, hero_model_img,
     hero_product_img1, hero_product_img2, gs_logo,
     product_img1, product_img2, product_img3, product_img4, product_img5, product_img6,
-    product_img7, product_img8, product_img9, product_img10, product_img11, product_img12,
+    product_img7, product_img8,product_img18_2,product_img18_3, product_img9, product_img10, product_img11, product_img12,product_img13,product_img14,product_img15,product_img16,product_img17,product_img17_2,product_img17_3,product_img18,product_img19,product_img19_2,product_img19_3,product_img19_4,product_img20,product_img20_2,product_img20_3,product_img21,product_img21_2,product_img21_3,product_img21_4,product_img22,product_img22_2,product_img23,
 }
 
 export const categories = ["Headphones", "Speakers", "Watch", "Earbuds", "Mouse", "Decoration",];
@@ -77,9 +103,11 @@ export const productDummyData = [
         createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
         updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
     },
+   
+     
     {
         id: "prod_2",
-        name: "Smart speaker gray",
+        name: "Smart speaker ",
         description: "Smart speaker with a sleek design. It's perfect for any room. It's made of high-quality materials and comes with a lifetime warranty.",
         mrp: 1500,
         price: 1000,
@@ -241,7 +269,171 @@ export const productDummyData = [
         rating: [...dummyRatingsData,...dummyRatingsData],
         createdAt: 'Sat Jul 19 2025 14:51:25 GMT+0530 (India Standard Time)',
         updatedAt: 'Sat Jul 19 2025 14:51:25 GMT+0530 (India Standard Time)',
-    }
+    },
+     {
+        id: "prod_13",
+        name: "Smart Watch",
+        description: "A smartwatch is a stylish, multifunctional wearable device that keeps you connected on the go.It not only tells time but also tracks fitness, heart rate, and sleep patterns with precision.With smart notifications, calls, and app access on your wrist, it blends technology and convenience seamlessly.Perfect for both daily use and workouts, it helps you stay productive and healthy.Modern designs and customizable watch faces make it a perfect blend of fashion and functionality. ",
+        mrp: 2000,
+        price: 1599,
+        images: [product_img13],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+     },
+      {
+        id: "prod_14",
+        name: "PS5",
+        description: "The PlayStation 5 (PS5) is Sony’s powerful next-generation gaming console built for ultra-fast performance and stunning graphics.Powered by a custom SSD and ray-tracing technology, it delivers incredibly realistic visuals and near-instant load times.Its DualSense controller offers immersive haptic feedback and adaptive triggers for a next-level gaming experience.Whether you’re exploring vast open worlds or competing online, the PS5 brings games to life like never before.With support for 4K gaming, exclusive titles, and sleek futuristic design, it defines the future of console entertainment. ",
+        mrp: 60000,
+        price: 40000,
+        images: [product_img14],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },
+    {
+        id: "prod_15",
+        name: "Boss headphone",
+        description: "Bose over-ear headphones deliver rich, balanced sound with deep bass and crystal-clear highs for an immersive listening experience.Designed for all-day comfort, they feature plush ear cushions and a lightweight build that fits perfectly around your ears.With world-class noise cancellation, they block out distractions so you can focus on your music or calls.Bluetooth connectivity ensures seamless pairing and long battery life for uninterrupted playback.Perfect for travel, work, or relaxation — Bose headphones combine premium design, comfort, and cutting-edge audio performance. ",
+        mrp: 35000,
+        price: 30000,
+        images: [product_img15],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },
+    {
+        id: "prod_16",
+        name: "Home projector",
+        description: "The Sony Home Projector transforms your living room into a cinematic experience with vibrant, true-to-life 4K visuals.Its advanced image processing delivers stunning brightness, deep contrast, and exceptional clarity on any surface.Equipped with powerful speakers and seamless connectivity, it supports streaming, gaming, and presentations with ease.The sleek, compact design fits effortlessly into modern homes while offering whisper-quiet performance.Whether for movies, sports, or gaming, Sony’s home projector brings the big-screen magic right to your space. ",
+        mrp: 50000,
+        price: 45999,
+        images: [product_img16],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },
+    {
+        id: "prod_17",
+        name: "GoPro",
+        description: "The GoPro is a compact, rugged action camera built to capture your adventures in stunning detail. With 4K video, wide-angle shots, and advanced stabilization, it delivers smooth and cinematic footage anywhere you go.It’s waterproof, durable, and perfect for sports, travel, and vlogging — no moment is too extreme.Easily mountable on helmets, bikes, or gear, it lets you record hands-free from any angle.Whether underwater or in the air, the GoPro turns every experience into a high-quality, shareable story.",
+        mrp: 38999,
+        price: 35000,
+        images: [product_img17,product_img17_2],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },
+    {
+        id: "prod_18",
+        name: "Apple Airpod Pro",
+        description: "Apple AirPods Pro deliver immersive, high-fidelity sound with Active Noise Cancellation that blocks out distractions.Their Adaptive Transparency mode lets you hear the world around you when needed, balancing awareness and focus.Designed for comfort, they feature customizable silicone tips for a perfect in-ear fit.With spatial audio and dynamic head tracking, they create a surround-sound experience for music and movies.Seamlessly integrated with Apple devices, AirPods Pro offer effortless connectivity, touch control, and long battery life.",
+        mrp: 21999,
+        price: 18999,
+        images: [product_img18,product_img18_2,product_img18_3],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },
+    {
+        id: "prod_19",
+        name: "Bag",
+        description: "A bag is a versatile everyday essential designed to carry your belongings with style and convenience.Crafted from durable materials, it combines functionality with modern design for any occasion.With multiple compartments and secure zippers, it keeps your items organized and easy to access.From work to travel, a good bag complements your outfit while providing practical storage.Whether it’s a backpack, tote, or sling, it blends comfort, durability, and fashion effortlessly.",
+        mrp: 1599,
+        price: 1199,
+        images: [product_img19,product_img19_2,product_img19_3,product_img19_4],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },
+    {
+        id: "prod_20",
+        name: "Shoes",
+        description: "Shoes are the perfect blend of style, comfort, and functionality for every step you take.Designed with high-quality materials, they provide support and durability for daily wear or sports activities.From casual sneakers to formal footwear, there’s a pair for every occasion and outfit.Breathable designs and cushioned soles ensure all-day comfort and confidence.Stylish yet practical, shoes not only complete your look but also enhance your overall performance and comfort.",
+        mrp: 7500,
+        price: 4999,
+        images: [product_img20,product_img20_2,product_img20_3],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },
+    {
+        id: "prod_21",
+        name: "Apple MacBook Air",
+        description: "The MacBook Air is Apple’s ultra-slim, lightweight laptop designed for power and portability Powered by the Apple M-series chip, it delivers blazing-fast performance with incredible energy efficiency.Its Retina display offers vibrant colors and sharp details, perfect for work, study, or entertainment.With an all-day battery life and silent, fanless design, it’s built for seamless productivity on the go.Elegant, durable, and efficient — the MacBook Air redefines what a modern laptop should be.",
+        mrp: 85000,
+        price: 66900,
+        images: [product_img21,product_img21_2,product_img21_3,product_img21_4],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },{
+        id: "prod_22",
+        name: "Hoddie",
+        description: "Hoodies are cozy, casual sweatshirts with a hood — perfect for comfort and everyday wear.They blend style and warmth, often featuring front pockets and drawstrings, making them ideal for both lounging and layering in any season.They’re a timeless fashion staple that pairs effortlessly with jeans, joggers, or shorts.Whether you’re heading out or relaxing indoors, a hoodie keeps you warm, stylish, and comfortable all day long. ",
+        mrp: 1299,
+        price: 900,
+        images: [product_img22,product_img22_2],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },{
+        id: "prod_23",
+        name: " Apple 16 Pro",
+        description: "The iPhone 16 Pro is Apple’s latest flagship smartphone, crafted with premium materials and cutting-edge technology.Powered by the advanced A18 Pro chip, it delivers lightning-fast performance and exceptional efficiency.Its ProMotion display offers stunning brightness, vibrant colors, and ultra-smooth visuals.With an upgraded triple-camera system, it captures breathtaking photos and 4K videos in any lighting.Sleek, durable, and innovative — the iPhone 16 Pro sets a new standard for power, design, and mobile photography.",
+        mrp: 134090,
+        price: 133090,
+        images: [product_img23],
+        category: "Fashion",
+        storeId: "seller_1",
+        inStock: true,
+        store: dummyStoreData,
+        rating: dummyRatingsData,
+        createdAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+        updatedAt: 'Sat Jul 29 2025 14:51:25 GMT+0530 (India Standard Time)',
+    },
+    
 ];
 
 export const ourSpecsData = [

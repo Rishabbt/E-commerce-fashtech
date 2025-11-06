@@ -88,6 +88,7 @@ const SpecificationsPage = () => {
               
               <h3 className="text-white text-xl font-semibold mt-3">{spec.title}</h3>
               <p className="text-slate-300 text-sm mt-3 leading-relaxed">{spec.description}</p>
+                
             </motion.div>
           )
         })}

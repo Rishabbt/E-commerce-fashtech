@@ -24,8 +24,8 @@ const Navbar = () => {
             <div className="mx-6">
                 <div className="flex items-center justify-between max-w-7xl mx-auto py-4  transition-all">
 
-                    <Link href="/" className="relative text-4xl font-semibold text-slate-700">
-                        <span className="text-green-600">Fash</span>Tech<span className="text-green-600 text-5xl leading-0"></span>
+                    <Link href="/" className="relative text-4xl font-semibold text-white">
+                        <span className="text-green-600">Fash</span>Tech
                        
                     </Link>
 
@@ -71,11 +71,11 @@ const Navbar = () => {
                                     </UserButton.MenuItems>
                                 </UserButton>
 
-                                <UserButton>
+                                {/* <UserButton>
                                     <UserButton.MenuItems>
                                         <UserButton.Action labelIcon={<PackageIcon size={16}/>} label="My order" onClick={()=> router.push('/order')} />
                                     </UserButton.MenuItems>
-                                </UserButton>
+                                </UserButton> */}
                               </div>
                             ) : (
 
