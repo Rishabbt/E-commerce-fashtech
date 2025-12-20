@@ -17,18 +17,13 @@ export default function RootLayout({ children }) {
         <ClerkProvider>
             <html lang="en">
                 <body className={`${outfit.className} antialiased bg-slate-950`}>
-                    {/* Google Analytics */}
-                    <Script
-                        strategy="afterInteractive"
-                        src="https://www.googletagmanager.com/gtag/js?id=G-V651Z1KGJS"
-                    />
-                    <Script id="gtag-init" strategy="afterInteractive">
-                        {`
-                          window.dataLayer = window.dataLayer || [];
-                          function gtag(){dataLayer.push(arguments);}
-                          gtag('js', new Date());
-                          gtag('config', 'G-V651Z1KGJS');
-                        `}
+                    {/* Google tag (gtag.js) */}
+                    <Script src="https://www.googletagmanager.com/gtag/js?id=G-V651Z1KGJS" strategy="afterInteractive" />
+                    <Script id="gtag" strategy="afterInteractive">
+                      {`window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-V651Z1KGJS');`}
                     </Script>
 
                     <StoreProvider>
