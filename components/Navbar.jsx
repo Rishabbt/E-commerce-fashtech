@@ -1,5 +1,5 @@
 'use client'
-import { PackageIcon, Search, ShoppingCart } from "lucide-react";
+import { PackageIcon, Search, ShoppingCart, BadgeIcon, HomeIcon, BoxIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -52,9 +52,11 @@ const Navbar = () => {
                         ) : (
                                 <UserButton>
                                     <UserButton.MenuItems>
-                                        <UserButton.Action labelIcon={<PackageIcon size={16}/>} label="My order" onClick={()=> router.push('/order')} />
+                                        <UserButton.Action labelIcon={<PackageIcon size={16}/>} label="My order" onClick={()=> router.push('/orders')} />
                                     </UserButton.MenuItems>
+                                   
                                 </UserButton>
+                                
                         )}
 
                     </div>
@@ -66,8 +68,14 @@ const Navbar = () => {
                             user ? (
                               <div>
                                 <UserButton>
+                                     <UserButton.MenuItems>
+                                        <UserButton.Action labelIcon={<HomeIcon size={16}/>} label="Home" onClick={()=> router.push('/')} />
+                                    </UserButton.MenuItems>
                                     <UserButton.MenuItems>
                                         <UserButton.Action labelIcon={<ShoppingCart size={16}/>} label="Cart" onClick={()=> router.push('/cart')} />
+                                    </UserButton.MenuItems>
+                                     <UserButton.MenuItems>
+                                        <UserButton.Action labelIcon={<PackageIcon size={16}/>} label="My Orders" onClick={()=> router.push('/orders')} />
                                     </UserButton.MenuItems>
                                 </UserButton>
 
