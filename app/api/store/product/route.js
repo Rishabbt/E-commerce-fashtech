@@ -22,13 +22,13 @@ export async function POST(request) {
             const category = formData.get("category")
              const images = formData.getAll("images")
 
-             if(!name || !description || !mrp || !price || !category || !images.length <1 ){
+             if(!name || !description || !mrp || !price || !category || !images.length < 1 ){
                 return NextResponse.json({error: 'Missing Product details'}, {status: 401})
              }
              // uploading img to imgagekit
 
              const imagesUrl = await Promise.all(images.map(async (image) => {
-                const buffer = Buffer.from(await image.arryBuffer())
+                const buffer = Buffer.from(await image.arrayBuffer())
                 const response = await imagekit({
                     file: buffer,
                     fileName: image.name,
@@ -74,7 +74,7 @@ export async function GET(request){
         }
         const products =await prisma.product.findMany({where: {storeId}})
         return NextResponse.json({products})
-    } catch {
+    } catch(error) {
         console.error(error)
             return NextResponse.json({error: error.code || error.message}, {status: 401})
     }

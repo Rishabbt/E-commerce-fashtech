@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     try{ 
         // Get store username form query params
-        const {searchParams}  = new URL(request.URL)
+        const {searchParams}  = new url(request.url)
         const username = searchParams.get('username').toLocaleLowerCase()
 
         if(!username){
