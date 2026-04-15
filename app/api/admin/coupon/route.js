@@ -1,6 +1,4 @@
-
-
-
+import { inngest } from "@/inngest/client"
 import authAdmin from "@/middlewares/authAdmin"
 import { auth } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
@@ -18,7 +16,16 @@ export async function POST(request) {
         const { coupon } = await request.json()
         coupon.code = coupon.code.toUpperCase()
 
-        await prisma.coupon.create({data: coupon})
+        await prisma.coupon.create({data: coupon}).then (async(coupon) => {
+            // Run inngest sheduler fn to delete coupons at expiry
+            await inngest.send({
+                name:"app/coupon.expired",
+                data: {
+                    code: coupon.code,
+                    expires_at: coupon.expires_at,
+                }
+            })
+        })
         return NextResponse.json({message: "Coupon added successfully"})
     } catch (error) {
          console.log(error)
