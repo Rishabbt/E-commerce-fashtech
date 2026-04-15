@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
     try {
-        const { userId } = auth(request)
+        const { userId } = await auth()
 
         const formData = await request.formData() // ✅ fixed typo
 
@@ -81,7 +81,7 @@ export async function POST(request) {
 
 export async function GET(request) {
     try {
-        const { userId } = auth(request)
+        const { userId } = await auth()
 
         const store = await prisma.store.findFirst({
             where: { userId: userId }

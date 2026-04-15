@@ -6,7 +6,7 @@ import authSeller from "@/middlewares/authSeller";
 // toggle stock of a product
 export async function POST(request) {
     try {
-        const { userId } = auth(request)
+        const { userId } = await auth()
         const { productId } = await request.json()
 
         if (!productId) {

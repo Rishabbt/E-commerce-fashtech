@@ -6,7 +6,7 @@ import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 export async function POST(request) {
      try {
-        const { userId} = auth(request)
+        const { userId} = await auth()
         const storeId = await authSeller(userId)
 
         if(!storeId){
@@ -66,7 +66,7 @@ export async function POST(request) {
 
 export async function GET(request){
     try{ 
-        const { userId} = auth(request)
+        const { userId} = await auth()
         const storeId = await authSeller(userId)
 
         if(!storeId){

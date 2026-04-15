@@ -9,7 +9,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(request) {
     try {
-        const { userId } = await auth() // ✅ added await
+        const { userId } = await auth() 
         const isAdmin = await authAdmin(userId)
 
         if (!isAdmin) {

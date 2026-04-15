@@ -5,10 +5,10 @@ import { NextResponse } from "next/server";
 
 // Get all approved stores
 
-export async function GET(request) {
+export async function GET() {
 
     try {
-        const { userId} = auth(request)
+        const { userId} = await auth()
         const isAdmin = await authAdmin(userId)
 
         if(!isAdmin){

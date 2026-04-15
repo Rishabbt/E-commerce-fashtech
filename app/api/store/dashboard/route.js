@@ -9,7 +9,7 @@ import { auth } from "@clerk/nextjs/server"
 // Get the dashboard data for seller ( total orders, total earning, total products )
 export async function GET(request){
     try{
-            const { userId} = auth(request)
+            const { userId} = await auth()
             const storeId = await authSeller(userId)
 
             // Get all orders for seller

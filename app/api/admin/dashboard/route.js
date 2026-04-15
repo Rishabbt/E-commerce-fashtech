@@ -9,7 +9,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
 
     try {
-        const { userId} = auth(request)
+        const { userId} = await auth()
     const isAdmin = await authAdmin(userId)
 
     if(!isAdmin){
@@ -18,13 +18,13 @@ export async function GET(request) {
 
             // Get total orders
 
-            const orders = await prisma.orders.count()
+            const orders = await prisma.order.count()
             // Get total stores on app
-            const store = await prisma.store.count()
+            const stores = await prisma.store.count()
             // Get all orders include only createdAt and total & calculate total revenue
             const allOrders = await prisma.order.findMany({
                 select: {
-                    createAt: true,
+                    createdAt: true,
                     total: true,
                 }
             })

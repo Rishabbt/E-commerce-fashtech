@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
 
     try {
-        const { userId} = auth(request)
+        const { userId} = await auth()
         const isAdmin = await authAdmin(userId)
 
         if(!isAdmin){

@@ -5,7 +5,7 @@ import authSeller from "@/middlewares/authSeller";
 // auht seller 
 export async function GET(request) {
     try{
-        const {userId} = auth(request)
+        const {userId} = await auth()
         const isSeller = await authSeller(userId)
 
         if(!isSeller){
