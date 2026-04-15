@@ -63,31 +63,31 @@ export default function CreateStore() {
     }
 
     const onSubmitHandler = async (e) => {
-        e.preventDefault()
-        if (!user) {
-            return toast('Please login to continue')
-        }
-        try {
-            const token = await getToken()
-            const formData = new FormData()
-            formData.append("name", storeInfo.name)
-            formData.append("description", storeInfo.description)
-            formData.append("username", storeInfo.username)
-            formData.append("email", storeInfo.email)
-            formData.append("contact", storeInfo.contact)
-            formData.append("address", storeInfo.address)
-            formData.append("image", storeInfo.image)
-
-            const {data} = await axios.post('/api/store/create', formData, {headers: {Authorization: `Bearer ${token}`}})
-            toast.success(data.message)
-            await fetchSellerStatus()
-
-        } catch {
-            toast.error(error?.response?.data?.error || error.message)
-        }
-
-
+    e.preventDefault()
+    if (!user) {
+        return toast('Please login to continue')
     }
+    try {
+        const token = await getToken()
+        const formData = new FormData()
+        formData.append("name", storeInfo.name)
+        formData.append("description", storeInfo.description)
+        formData.append("username", storeInfo.username)
+        formData.append("email", storeInfo.email)       // ✅ was missing
+        formData.append("contact", storeInfo.contact)
+        formData.append("address", storeInfo.address)
+        formData.append("image", storeInfo.image)
+
+        const { data } = await axios.post('/api/store/create', formData, {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+        toast.success(data.message)
+        await fetchSellerStatus()
+
+    } catch (error) { // ✅ fixed missing (error) parameter
+        toast.error(error?.response?.data?.error || error.message)
+    }
+}
 
     useEffect(() => {
         if(user){
@@ -112,7 +112,7 @@ export default function CreateStore() {
                         {/* Title */}
                         <div>
                             <h1 className="text-3xl ">Add Your <span className="text-slate-800 font-medium">Store</span></h1>
-                            <p className="max-w-lg">To become a seller on GoCart, submit your store details for review. Your store will be activated after admin verification.</p>
+                            <p className="max-w-lg">To become a seller on FeshTech, submit your store details for review. Your store will be activated after admin verification.</p>
                         </div>
 
                         <label className="mt-10 cursor-pointer">
@@ -144,7 +144,7 @@ export default function CreateStore() {
                 </div>
             ) : (
                 <div className="min-h-[80vh] flex flex-col items-center justify-center">
-                    <p className="sm:text-2xl lg:text-3xl mx-5 font-semibold text-slate-500 text-center max-w-2xl">{message}</p>
+                    <p className="sm:text-2xl lg:text-3xl mx-5 font-semibold text-white text-center max-w-2xl">{message}</p>
                     {status === "approved" && <p className="mt-5 text-slate-400">redirecting to dashboard in <span className="font-semibold">5 seconds</span></p>}
                 </div>
             )}
