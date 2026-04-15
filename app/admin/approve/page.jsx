@@ -2,8 +2,7 @@
 import { storesDummyData } from "@/assets/assets"
 import StoreInfo from "@/components/admin/StoreInfo"
 import Loading from "@/components/Loading"
-import { useAuth } from "@clerk/clerk-react"
-import { useUser } from "@clerk/nextjs"
+import { useUser,useAuth } from "@clerk/nextjs"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import axios from "axios"
@@ -30,8 +29,9 @@ export default function AdminApprove() {
     const handleApprove = async ({ storeId, status }) => {
             try{
                 const token = await getToken()
-             const {data} = await axios.get('/api/admin/approve-store',{ headers : { Authorization: `Bearer ${token}`}})
+             const {data} = await axios.post('/api/admin/approve-store',{storeId, status},{ headers : { Authorization: `Bearer ${token}`}})
               toast.success(data.message)
+              console.log("approving store", storeId)
               await fetchStores()
             }   catch(error){
                 toast.error(error?.response?.data?.error || error.message)

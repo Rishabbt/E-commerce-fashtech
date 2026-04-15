@@ -13,7 +13,7 @@ export async function POST(request) {
         if(!isAdmin){
             return NextResponse.json({ error: 'not authorized'}, {status:401})
         }
-        const {storId} = await request.json()
+        const {storeId} = await request.json()
 
         if(!storeId) {
             return NextResponse.json({ error: "Missing storeId"}, {status:400})
@@ -21,14 +21,14 @@ export async function POST(request) {
         
         // Find the store
         const store = await prisma.store.findUnique({
-            where: {id: storId}
+            where: {id: storeId}
         })    
         if(!store){
             return NextResponse.json({ error: "Store not found"}, {status:400})
 
         }
         await prisma.store.update({
-            where: {id: storId},
+            where: {id: storeId},
             data: { isActive: !store.isActive}
         })
         return NextResponse.json({ message: "Store update successfully"})
