@@ -19,7 +19,7 @@ export async function GET(request){
 
             const products = await prisma.product.findMany({where: {storeId}})
 
-            const ratings = await prisma.ratings.findMany({where:{productId: {in: products.map(product => product.id)}},
+            const ratings = await prisma.rating.findMany({where:{productId: {in: products.map(product => product.id)}},
             include: {user: true, product: true}
         })
 
