@@ -9,11 +9,11 @@ import { auth } from "@clerk/nextjs/server"
 // Get the dashboard data for seller ( total orders, total earning, total products )
 export async function GET(request){
     try{
-            const { userId} = await auth()
+            const { userId} = await auth(request)
             const storeId = await authSeller(userId)
 
             // Get all orders for seller
-            const orders = await prisma.product.findMany({where: {storeId}})
+            const orders = await prisma.order.findMany({where: {storeId}})
 
             // Get all products with rating for seller
 
@@ -26,7 +26,7 @@ export async function GET(request){
         const dashboardData = {
             ratings,
             totalOrders: orders.length,
-            totalEarning: Math.round(orders.reduce((acc, order) => acc + order.total, 0)),
+            totalEarnings: Math.round(orders.reduce((acc, order) => acc + order.total, 0)),
             totalProducts: products.length
         }
 
