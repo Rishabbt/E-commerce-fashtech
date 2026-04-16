@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     try{ 
         // Get store username form query params
-        const {searchParams}  = new url(request.url)
+        const {searchParams}  = new URL(request.url)
         const username = searchParams.get('username').toLocaleLowerCase()
 
         if(!username){
@@ -23,7 +23,7 @@ export async function GET(request) {
                      return NextResponse.json({ message: 'Store not found' },{ status: 400})
              
         } 
-        return  NextResponse.json({ store },{ status: 400})
+        return  NextResponse.json({ store },{ status: 200})
              
     } catch(error) {
          console.error(error)
