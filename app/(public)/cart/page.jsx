@@ -7,9 +7,12 @@ import { Trash2Icon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { fetchCart } from "@/lib/features/cart/cartSlice";
+import { useAuth, useUser } from "@clerk/nextjs";
 export default function Cart() {
 
+    const { user } = useUser()         
+    const { getToken } = useAuth()     
     const currency = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '₹';
     
     const { cartItems } = useSelector(state => state.cart);
@@ -19,6 +22,13 @@ export default function Cart() {
 
     const [cartArray, setCartArray] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+
+     useEffect(() => {
+        if (user) {
+            dispatch(fetchCart({ getToken }))
+        }
+    }, [user])
+
 
     const createCartArray = () => {
         setTotalPrice(0);

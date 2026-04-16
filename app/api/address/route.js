@@ -26,15 +26,19 @@ export async function POST(request) {
 
 // Get all address for a user 
 export async function GET(request) {
-    try{
-        const { userId} = getAuth(request)
+    try {
+        const { userId } = getAuth(request)
 
-        const address = await prisma.address.findMany({
-            where: { userId}
+        if (!userId) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+        }
+
+        const addresses = await prisma.address.findMany({
+            where: { userId }
         })
-        return NextResponse.json({address, message: 'Address added succrssfully'})
-    } catch(error){
+        return NextResponse.json({ addresses })
+    } catch (error) {
         console.error(error)
-        return NextResponse.json({error: error.code || error.message}, {status: 400})
+        return NextResponse.json({ error: error.code || error.message }, { status: 400 })
     }
 }
