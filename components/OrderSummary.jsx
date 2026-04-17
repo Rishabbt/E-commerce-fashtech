@@ -155,7 +155,7 @@ const OrderSummary = ({ totalPrice, items }) => {
                 <p>Total:</p>
 
                 <p className='font-medium text-right'>
-                    <Protect plan={'plan'} fallback={`
+                    <Protect plan={'plus'} fallback={`
                     ${currency}${coupon ? (totalPrice + 49 - (coupon.discount / 100 * totalPrice)).toFixed(2) : (totalPrice + 49).toLocaleString()}
                         `}>
                       {currency}{coupon ? (totalPrice - (coupon.discount / 100 * totalPrice)).toFixed(2) : totalPrice.toLocaleString()}  
