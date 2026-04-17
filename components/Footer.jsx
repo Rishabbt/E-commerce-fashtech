@@ -36,7 +36,7 @@ const Footer = () => {
                 { text: "Rishabh Tripathi", path: 'https://www.linkedin.com/in/rishabh-tripathi-575252290/', icon: LinkedinIcon },
                 { text: "Karan Pratap Singh", path: 'https://www.linkedin.com/in/karan-pratap-singh-579a88236/', icon: LinkedinIcon },
                 { text: "Vishal Verma", path: 'https://www.linkedin.com/in/vishal-verma-830216324/', icon: LinkedinIcon },
-                
+                // { text: "Vishal Choudhary", path: ''}
             ]
         },
         {
@@ -58,42 +58,44 @@ const Footer = () => {
 
     return (
         <footer className="mx-6 bg-slate-950">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-slate-500">
-                    <div>
-                        <Link href="/" className="text-4xl font-semibold text-white">
-                            <span className="text-green-600">Fash</span>Tech<span className="text-green-600 text-5xl leading-0"></span>
+    <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-slate-500">
+            <div>
+                <Link href="/" className="text-4xl font-semibold text-white">
+                    <span className="text-green-600">Fash</span>Tech<span className="text-green-600 text-5xl leading-0"></span>
+                </Link>
+                <p className="max-w-[410px] mt-6 text-m">Welcome to FashTech, your ultimate destination for the latest and smartest gadgets. From smartphones and smartwatches to essential accessories, we bring you the best in innovation — all in one place.</p>
+                <div className="flex items-center gap-3 mt-5">
+                    {socialIcons.map((item, i) => (
+                        <Link href={item.link} key={i} className="flex items-center justify-center w-10 h-10 bg-slate-600 hover:scale-105 hover:border border-slate-300 transition rounded-full">
+                            <item.icon />
                         </Link>
-                        <p className="max-w-[410px] mt-6 text-m">Welcome to FashTech, your ultimate destination for the latest and smartest gadgets. From smartphones and smartwatches to essential accessories, we bring you the best in innovation — all in one place.</p>
-                        <div className="flex items-center gap-3 mt-5">
-                            {socialIcons.map((item, i) => (
-                                <Link href={item.link} key={i} className="flex items-center justify-center w-10 h-10 bg-slate-600 hover:scale-105 hover:border border-slate-300 transition rounded-full">
-                                    <item.icon />
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5 text-sm ">
-                        {linkSections.map((section, index) => (
-                            <div key={index}>
-                                <h3 className="font-medium text-slate-700 md:mb-5 mb-3">{section.title}</h3>
-                                <ul className="space-y-2.5">
-                                    {section.links.map((link, i) => (
-                                        <li key={i} className="flex items-center gap-2">
-                                            {link.icon && <link.icon />}
-                                            <Link href={link.path} className="hover:underline transition">{link.text}</Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
+                    ))}
                 </div>
-                <p className="py-4 text-sm text-slate-500  text-center">
-                    Copyright 2025 © FashTech All Right Reserved.
-                </p>
             </div>
-        </footer>
+
+            {/* ✅ Changed: grid with 4 equal columns, wider container */}
+            <div className="grid grid-cols-2 md:grid-cols-4 w-full md:w-[60%] gap-x-6 gap-y-8 text-sm">
+                {linkSections.map((section, index) => (
+                    <div key={index}>
+                        <h3 className="font-medium text-slate-700 md:mb-5 mb-3">{section.title}</h3>
+                        <ul className="space-y-2.5">
+                            {section.links.map((link, i) => (
+                                <li key={i} className="flex items-center gap-2">
+                                    {link.icon && <link.icon />}
+                                    <Link href={link.path} className="hover:underline transition">{link.text}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <p className="py-4 text-sm text-slate-500 text-center">
+            Copyright 2025 © FashTech All Right Reserved.
+        </p>
+    </div>
+</footer>
     );
 };
 
