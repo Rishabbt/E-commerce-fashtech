@@ -58,7 +58,7 @@ const BestSelling = () => {
               transition={{ delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <ProductCard product={product} rating={ratingNumber} />
+              <ProductCard product={product} rating={product.rating} />
             </motion.div>
           );
         })}

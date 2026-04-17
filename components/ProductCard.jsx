@@ -4,7 +4,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react"; // ✅ fixed icon import
 
-const ProductCard = ({ product, rating = 4, currency = "₹" }) => {
+const ProductCard = ({ product, currency = "₹" }) => {
+   const rating = product.rating?.length
+    ? Math.round(product.rating.reduce((acc, r) => acc + r.rating, 0) / product.rating.length)
+    : 0
   return (
     <Link href={`/product/${product.id}`} className="group">
       <motion.div
