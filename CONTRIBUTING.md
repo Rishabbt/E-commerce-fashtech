@@ -1,6 +1,6 @@
-# Contributing to GoCart
+# Contributing to FashTech
 
-Thank you for considering contributing to **GoCart**!
+Thank you for considering contributing to **FashTech**!
 We welcome contributions from everyone, whether it's fixing a bug, adding a new feature, or optimizing the codebase.
 
 ---

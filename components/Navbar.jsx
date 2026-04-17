@@ -1,18 +1,42 @@
 'use client'
-import { PackageIcon, Search, ShoppingCart, BadgeIcon, HomeIcon, BoxIcon } from "lucide-react";
+import { PackageIcon, Search, ShoppingCart, HomeIcon, ShieldCheckIcon, StoreIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import {useUser, useClerk, UserButton, Protect} from "@clerk/nextjs"
+import { useUser, useClerk, UserButton, useAuth } from "@clerk/nextjs"
+import axios from "axios";
+
 const Navbar = () => {
 
-    const {user} = useUser()
-    const {openSignIn} = useClerk()
+    const { user } = useUser()
+    const { openSignIn } = useClerk()
+    const { getToken } = useAuth()
     const router = useRouter();
 
     const [search, setSearch] = useState('')
+    const [isAdmin, setIsAdmin] = useState(false)
+    const [isSeller, setIsSeller] = useState(false)
     const cartCount = useSelector(state => state.cart.total)
+
+    useEffect(() => {
+        const checkRoles = async () => {
+            if (!user) return
+            try {
+                const token = await getToken()
+                const [adminRes, sellerRes] = await Promise.all([
+                    axios.get('/api/admin/is-admin', { headers: { Authorization: `Bearer ${token}` } }).catch(() => null),
+                    axios.get('/api/store/is-seller', { headers: { Authorization: `Bearer ${token}` } }).catch(() => null),
+                ])
+                setIsAdmin(adminRes?.data?.isAdmin ?? false)
+                setIsSeller(sellerRes?.data?.isSeller ?? false)
+            } catch {
+                setIsAdmin(false)
+                setIsSeller(false)
+            }
+        }
+        checkRoles()
+    }, [user])
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -22,21 +46,14 @@ const Navbar = () => {
     return (
         <nav className="relative bg-slate-950">
             <div className="mx-6">
-                <div className="flex items-center justify-between max-w-7xl mx-auto py-4  transition-all">
+                <div className="flex items-center justify-between max-w-7xl mx-auto py-4 transition-all">
 
                     <Link href="/" className="relative text-4xl font-semibold text-white">
                         <span className="text-green-600">Fash</span>Tech
-                        <Protect plan='plus'>
-
-                        <p className="absolute text-xs font-semibold -top-1 -right-12 px-3 p-0.5 rounded-full flex items-center gap-2 text-white bg-green-500">
-                        plus
-                        </p>
-                        </Protect>
                     </Link>
 
                     {/* Desktop Menu */}
                     <div className="hidden sm:flex items-center gap-4 lg:gap-8 text-slate-600">
-                       
 
                         <form onSubmit={handleSearch} className="hidden xl:flex items-center w-200 text-sm gap-2 bg-slate-100 px-4 py-3 rounded-full">
                             <Search size={18} className="text-slate-600" />
@@ -50,53 +67,58 @@ const Navbar = () => {
                         </Link>
 
                         {!user ? (
-
-                        <button onClick={openSignIn} className="px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full">
-                            Login
-                        </button>
+                            <button onClick={openSignIn} className="px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full">
+                                Login
+                            </button>
                         ) : (
-                                <UserButton>
+                            <UserButton>
+                                <UserButton.MenuItems>
+                                    <UserButton.Action labelIcon={<PackageIcon size={16} />} label="My Orders" onClick={() => router.push('/orders')} />
+                                </UserButton.MenuItems>
+                                {isSeller && (
                                     <UserButton.MenuItems>
-                                        <UserButton.Action labelIcon={<PackageIcon size={16}/>} label="My order" onClick={()=> router.push('/orders')} />
+                                        <UserButton.Action labelIcon={<StoreIcon size={16} />} label="My Shop" onClick={() => router.push('/store')} />
                                     </UserButton.MenuItems>
-                                   
-                                </UserButton>
-                                
+                                )}
+                                {isAdmin && (
+                                    <UserButton.MenuItems>
+                                        <UserButton.Action labelIcon={<ShieldCheckIcon size={16} />} label="Admin Panel" onClick={() => router.push('/admin')} />
+                                    </UserButton.MenuItems>
+                                )}
+                            </UserButton>
                         )}
 
                     </div>
 
-                    {/* Mobile User Button  */}
+                    {/* Mobile User Button */}
                     <div className="sm:hidden">
-
-                        {
-                            user ? (
-                              <div>
-                                <UserButton>
-                                     <UserButton.MenuItems>
-                                        <UserButton.Action labelIcon={<HomeIcon size={16}/>} label="Home" onClick={()=> router.push('/')} />
-                                    </UserButton.MenuItems>
+                        {user ? (
+                            <UserButton>
+                                <UserButton.MenuItems>
+                                    <UserButton.Action labelIcon={<HomeIcon size={16} />} label="Home" onClick={() => router.push('/')} />
+                                </UserButton.MenuItems>
+                                <UserButton.MenuItems>
+                                    <UserButton.Action labelIcon={<ShoppingCart size={16} />} label="Cart" onClick={() => router.push('/cart')} />
+                                </UserButton.MenuItems>
+                                <UserButton.MenuItems>
+                                    <UserButton.Action labelIcon={<PackageIcon size={16} />} label="My Orders" onClick={() => router.push('/orders')} />
+                                </UserButton.MenuItems>
+                                {isSeller && (
                                     <UserButton.MenuItems>
-                                        <UserButton.Action labelIcon={<ShoppingCart size={16}/>} label="Cart" onClick={()=> router.push('/cart')} />
+                                        <UserButton.Action labelIcon={<StoreIcon size={16} />} label="My Shop" onClick={() => router.push('/store')} />
                                     </UserButton.MenuItems>
-                                     <UserButton.MenuItems>
-                                        <UserButton.Action labelIcon={<PackageIcon size={16}/>} label="My Orders" onClick={()=> router.push('/orders')} />
-                                    </UserButton.MenuItems>
-                                </UserButton>
-
-                                {/* <UserButton>
+                                )}
+                                {isAdmin && (
                                     <UserButton.MenuItems>
-                                        <UserButton.Action labelIcon={<PackageIcon size={16}/>} label="My order" onClick={()=> router.push('/order')} />
+                                        <UserButton.Action labelIcon={<ShieldCheckIcon size={16} />} label="Admin Panel" onClick={() => router.push('/admin')} />
                                     </UserButton.MenuItems>
-                                </UserButton> */}
-                              </div>
-                            ) : (
-
-                        <button onClick={openSignIn} className="px-7 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-sm transition text-white rounded-full">
-                            Login
-                        </button>
-                            )
-                        }
+                                )}
+                            </UserButton>
+                        ) : (
+                            <button onClick={openSignIn} className="px-7 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-sm transition text-white rounded-full">
+                                Login
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
