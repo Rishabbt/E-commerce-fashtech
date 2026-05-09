@@ -59,7 +59,7 @@ const Footer = () => {
     return (
         <footer className="mx-6 bg-slate-950">
     <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-slate-500">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-white">
             <div>
                 <Link href="/" className="text-4xl font-semibold text-white">
                     <span className="text-green-600">Fash</span>Tech<span className="text-green-600 text-5xl leading-0"></span>
@@ -92,7 +92,8 @@ const Footer = () => {
             </div>
         </div>
         <p className="py-4 text-sm text-slate-500 text-center">
-            Copyright 2025 © FashTech All Right Reserved.
+             © 
+            {new Date().getFullYear()} FashTech All Right Reserved.
         </p>
     </div>
 </footer>
