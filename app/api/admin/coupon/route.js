@@ -2,11 +2,13 @@ import { inngest } from "@/inngest/client"
 import authAdmin from "@/middlewares/authAdmin"
 import { auth } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
+import prisma from "@/lib/prisma" 
+
 
 // add new coupon
 export async function POST(request) {
     try{
-        const { userId } = await auth(request)
+        const { userId } = await auth()
         const isAdmin = await authAdmin(userId)
 
         if(!isAdmin){
