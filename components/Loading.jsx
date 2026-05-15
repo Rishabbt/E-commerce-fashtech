@@ -15,12 +15,12 @@ const Loading = () => {
             />
 
             {/* Scanning line */}
-            <div className="absolute left-0 right-0 h-[2px] pointer-events-none"
+            {/* <div className="absolute left-0 right-0 h-[2px] pointer-events-none"
                 style={{
                     background: 'linear-gradient(90deg, transparent, rgba(22,163,74,0.6), transparent)',
                     animation: 'scan 2.4s linear infinite'
                 }}
-            />
+            /> */}
 
             {/* Corner brackets */}
             {[
@@ -88,7 +88,7 @@ const Loading = () => {
                 {/* Status text */}
                 <p className="text-xs tracking-[2.5px] uppercase text-green-600/70"
                     style={{ animation: 'blink 1.2s ease-in-out infinite alternate' }}>
-                    Initializing
+                    Initializing..
                 </p>
             </div>
 

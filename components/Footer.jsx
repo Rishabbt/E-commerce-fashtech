@@ -36,14 +36,14 @@ const Footer = () => {
                 { text: "Rishabh Tripathi", path: 'https://www.linkedin.com/in/rishabh-tripathi-575252290/', icon: LinkedinIcon },
                 { text: "Karan Pratap Singh", path: 'https://www.linkedin.com/in/karan-pratap-singh-579a88236/', icon: LinkedinIcon },
                 { text: "Vishal Verma", path: 'https://www.linkedin.com/in/vishal-verma-830216324/', icon: LinkedinIcon },
-                // { text: "Vishal Choudhary", path: ''}
+                { text: "Vishal Choudhary", path: ' https://in.linkedin.com/in/vishal-choudhary-624a70322', icon: LinkedinIcon}
             ]
         },
         {
             title: "CONTACT",
             links: [
                 { text: "999XXX7063", path: '/', icon: MailIcon },
-                { text: "FashTech@example.com", path: '/', icon: PhoneIcon },
+                { text: "FashTech@.org", path: '/', icon: PhoneIcon },
                 { text: "Delhi-NCR,INDIA", path: '/', icon: MapPinIcon }
             ]
         }

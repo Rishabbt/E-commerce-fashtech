@@ -7,9 +7,11 @@ const AdminNavbar = () => {
 
     return (
         <div className="flex items-center justify-between px-12 py-3 border-b border-slate-200 transition-all">
-            <Link href="/" className="relative text-4xl font-semibold text-white">
-                <span className="text-green-600">Fash</span>Tech<span className="text-green-600 text-5xl leading-0"></span>
-                <p className="absolute text-xs font-semibold -top-1 -right-13 px-3 p-0.5 rounded-full flex items-center gap-2 text-white bg-green-500">
+            
+            <Link href="/" className="relative text-2xl sm:text-4xl font-semibold text-white">
+                <span className="text-green-600">Fesh</span>Tech
+                <span className="text-green-600 text-3xl sm:text-5xl leading-0">.</span>
+                <p className="absolute text-[9px] sm:text-xs font-semibold -top-1 -right-9 sm:-right-11 px-2 sm:px-3 p-0.5 rounded-full flex items-center gap-2 text-white bg-green-500">
                     Admin
                 </p>
             </Link>
