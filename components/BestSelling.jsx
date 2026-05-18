@@ -41,7 +41,7 @@ const BestSelling = () => {
         </p>
       </motion.div>
 
-      <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 xl:gap-10">
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-10">
         {bestSelling.map((product, index) => {
           const ratingNumber =
             typeof product.rating === "number"
