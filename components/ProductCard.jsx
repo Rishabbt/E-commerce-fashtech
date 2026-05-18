@@ -29,30 +29,31 @@ const ProductCard = ({ product, currency = "₹" }) => {
         </div>
 
         {/* Product Info */}
-        <div className="pt-4 flex flex-col sm:flex-row sm:justify-between sm:items-start text-slate-800 dark:text-gray-100 flex-grow">
-          <div className="flex-grow">
-            <p className="font-semibold text-base leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
+        {/* Product Info */}
+        <div className="pt-4 flex flex-col text-slate-800 dark:text-gray-100 flex-grow">
+          <div className="flex justify-between items-start gap-2">
+            <p className="font-semibold text-base leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 min-w-0">
               {product.name}
             </p>
-            {/* ⭐ Rating */}
-            <div className="flex mt-1">
-              {Array(5)
-                .fill("")
-                .map((_, index) => (
-                  <Star
-                    key={index}
-                    size={14}
-                    className="mr-1"
-                    fill={rating >= index + 1 ? "#00C950" : "none"} // ✅ visible green fill for rated stars
-                    stroke={rating >= index + 1 ? "#00C950" : "#D1D5DB"} // ✅ gray for empty stars
-                  />
-                ))}
-            </div>
+            {/* 💰 Price */}
+            <p className="font-bold text-indigo-600 dark:text-indigo-400 whitespace-nowrap shrink-0">
+              {currency} {product.price.toLocaleString("en-IN")}
+            </p>
           </div>
-          {/* 💰 Price */}
-          <p className="font-bold text-indigo-600 dark:text-indigo-400 mt-2 sm:mt-0">
-            {currency} {product.price.toLocaleString("en-IN")}
-          </p>
+          {/* ⭐ Rating */}
+          <div className="flex mt-1">
+            {Array(5)
+              .fill("")
+              .map((_, index) => (
+                <Star
+                  key={index}
+                  size={14}
+                  className="mr-1"
+                  fill={rating >= index + 1 ? "#00C950" : "none"}
+                  stroke={rating >= index + 1 ? "#00C950" : "#D1D5DB"}
+                />
+              ))}
+          </div>
         </div>
 
         {/* Hover Overlay Accent */}
