@@ -42,8 +42,8 @@ const Footer = () => {
         {
             title: "CONTACT",
             links: [
-                { text: "999XXX7063", path: '/', icon: MailIcon },
-                { text: "FashTech@.org", path: '/', icon: PhoneIcon },
+                { text: "FashTech@.org", path: '/', icon: MailIcon },
+                { text: "999XXX7063", path: '/', icon: PhoneIcon },
                 { text: "Delhi-NCR,INDIA", path: '/', icon: MapPinIcon }
             ]
         }
