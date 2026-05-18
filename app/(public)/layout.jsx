@@ -39,6 +39,8 @@ export default function PublicLayout({ children }) {
         <>
             {/* <Banner /> */}
             <Navbar />
+                        <div className="sm:hidden h-28" />  
+
             {children}
             <Footer />
         </>

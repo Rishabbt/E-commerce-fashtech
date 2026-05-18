@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const ProductCard = ({ product, currency = "₹" }) => {
   const rating = product.rating?.length
-    ? product.rating.reduce((acc, r) => acc + r.rating, 0) / product.rating.length
+    ? Math.round(product.rating.reduce((acc, r) => acc + r.rating, 0) / product.rating.length)
     : 0;
 
   const reviewCount = product.rating?.length || 0;
@@ -17,64 +18,71 @@ const ProductCard = ({ product, currency = "₹" }) => {
 
   return (
     <Link href={`/product/${product.id}`} className="group">
-      <div className="relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden flex flex-col transition-shadow duration-200 hover:shadow-md">
-
-        
-
-        {/* Image */}
-        <div className="w-full aspect-square bg-gray-50 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.03 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="relative bg-gradient-to-b from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-sm hover:shadow-lg hover:shadow-indigo-200/30 dark:hover:shadow-indigo-500/10 overflow-hidden p-4 w-40 sm:w-48 md:w-56 lg:w-60 mx-auto cursor-pointer transition-all duration-300 min-h-[320px] flex flex-col"
+      >
+        {/* Image Section */}
+        <div className="flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg overflow-hidden h-40 sm:h-48 md:h-56 flex-shrink-0">
           <Image
             width={400}
             height={400}
-            className="object-contain w-full h-full p-2 group-hover:scale-105 transition-transform duration-300"
+            className="object-contain w-auto h-full group-hover:scale-110 transition-transform duration-500"
             src={product.images[0]}
             alt={product.name}
           />
         </div>
 
-        {/* Info */}
-        <div className="p-2 sm:p-3 flex flex-col gap-1">
-
-          {/* Product Name */}
-          <p className="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-100 line-clamp-2 leading-snug">
-            {product.name}
-          </p>
-
-          {/* Star Rating + Review Count */}
-          <div className="flex items-center gap-1">
-            <div className="flex items-center gap-0.5 bg-green-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
-              <span>{rating.toFixed(1)}</span>
-              <Star size={9} fill="white" stroke="none" />
+        {/* Product Info */}
+        <div className="pt-4 flex flex-col text-slate-800 dark:text-gray-100 flex-grow">
+          <div className="flex justify-between items-start gap-2">
+            <p className="font-semibold text-base leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 min-w-0">
+              {product.name}
+            </p>
+            {/* 💰 Price */}
+            <div className="flex flex-col items-end shrink-0">
+              <p className="font-bold text-indigo-600 dark:text-indigo-400 whitespace-nowrap">
+                {currency} {product.price.toLocaleString("en-IN")}
+              </p>
+              {discount && (
+                <div className="flex items-center gap-1 mt-0.5">
+                  {product.mrp && (
+                    <span className="text-[10px] text-gray-400 line-through whitespace-nowrap">
+                      {currency} {product.mrp.toLocaleString("en-IN")}
+                    </span>
+                  )}
+                  <span className="text-[10px] font-semibold text-green-500 whitespace-nowrap">
+                    {discount}% off
+                  </span>
+                </div>
+              )}
             </div>
+          </div>
+          {/* ⭐ Rating */}
+          <div className="flex items-center gap-1 mt-1">
+            {Array(5)
+              .fill("")
+              .map((_, index) => (
+                <Star
+                  key={index}
+                  size={14}
+                  className="mr-1"
+                  fill={rating >= index + 1 ? "#00C950" : "none"}
+                  stroke={rating >= index + 1 ? "#00C950" : "#D1D5DB"}
+                />
+              ))}
             {reviewCount > 0 && (
-              <span className="text-[10px] sm:text-xs text-gray-400">
-                ({reviewCount})
-              </span>
+              <span className="text-[10px] text-gray-400">({reviewCount})</span>
             )}
           </div>
-
-          
-          {/* Pricing */}
-<div className="flex flex-col gap-0.5 mt-0.5">
-  <span className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
-    {currency}{product.price.toLocaleString("en-IN")}
-  </span>
-  <div className="flex items-center gap-1.5 flex-wrap">
-    {product.mrp && product.mrp > product.price && (
-      <span className="text-[10px] sm:text-xs text-gray-400 line-through">
-        {currency}{product.mrp.toLocaleString("en-IN")}
-      </span>
-    )}
-    {discount && (
-      <span className="text-[10px] sm:text-xs font-semibold text-green-500">
-        {discount}% off
-      </span>
-    )}
-  </div>
-</div>
-
         </div>
-      </div>
+
+        {/* Hover Overlay Accent */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-t from-indigo-100/40 dark:from-indigo-500/10 to-transparent"></div>
+      </motion.div>
     </Link>
   );
 };

@@ -44,7 +44,8 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="relative bg-slate-950">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/85 backdrop-blur-md sm:relative sm:bg-slate-950 sm:backdrop-blur-none">
+
             <div className="mx-6">
                 <div className="flex items-center justify-between max-w-7xl mx-auto py-4 transition-all">
 
@@ -121,6 +122,20 @@ const Navbar = () => {
                         )}
                     </div>
                 </div>
+
+                {/* Mobile Search Bar */}
+                <form onSubmit={handleSearch} className="sm:hidden flex items-center gap-2 bg-white px-4 py-2.5 rounded-full mb-3">
+                    <Search size={16} className="text-black shrink-0" />
+                    <input
+                        type="text"
+                        placeholder="Search products..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        className="w-full bg-transparent outline-none text-sm text-black placeholder-black"
+                        required
+                    />
+                </form>
+
             </div>
             <hr className="border-gray-300" />
         </nav>
