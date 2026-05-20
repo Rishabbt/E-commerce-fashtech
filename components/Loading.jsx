@@ -23,15 +23,7 @@ const Loading = () => {
             /> */}
 
             {/* Corner brackets */}
-            {[
-                'top-4 left-4 border-t-2 border-l-2',
-                'top-4 right-4 border-t-2 border-r-2',
-                'bottom-4 left-4 border-b-2 border-l-2',
-                'bottom-4 right-4 border-b-2 border-r-2'
-            ].map((cls, i) => (
-                <div key={i} className={`absolute w-4 h-4 border-green-600 ${cls}`} />
-            ))}
-
+            
             {/* Core */}
             <div className="relative flex flex-col items-center gap-5 z-10">
 
